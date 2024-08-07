@@ -54,7 +54,7 @@ export default {
           },
 
           '.h1': {
-            '@apply text-blue-900 font-karla text-2xl md:text-3xl font-bold leading-none': {},
+            '@apply text-blue-900 font-karla text-3xl md:text-5xl font-bold leading-none': {},
           },
 
           '.h2': {
@@ -62,7 +62,7 @@ export default {
           },
 
           '.button': {
-            '@apply bg-blue-600 text-white-50 py-3 px-10': {},
+            '@apply bg-blue-600 text-white-50 py-4 px-16 rounded-xl': {},
           },
         }),
         addUtilities({});

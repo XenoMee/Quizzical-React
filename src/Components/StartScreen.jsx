@@ -2,12 +2,12 @@ import React from 'react';
 
 const StartScreen = () => {
   return (
-    <div className='grid gap-4'>
+    <div className='grid gap-10 text-center'>
       <div>
-        <h1 className='h1'>Quizzical</h1>
+        <h1 className='h1 mb-3'>Quizzical</h1>
         <p>Ready to test your knowledge?</p>
       </div>
-      <button className='button font-medium'>Start Quiz</button>
+      <button className='button font-medium justify-self-center'>Start Quiz</button>
     </div>
   );
 };

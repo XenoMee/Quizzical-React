@@ -4,7 +4,7 @@ import StartScreen from './Components/StartScreen';
 const App = () => {
   return (
     <>
-      <main className='grid place-content-center'>
+      <main className='min-h-svh background-blobs grid place-content-center'>
         <StartScreen />
       </main>
     </>
