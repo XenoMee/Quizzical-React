@@ -26,12 +26,22 @@ export default {
       },
 
       screens: {
+        xxs: '320px',
+        xs: '375px',
         wide: '1440px',
       },
 
       backgroundImage: {
-        blueBlob: 'url("./images/blue_blob.png")',
-        yellowBlob: 'url("./images/yellow_blob.png")',
+        blobs: 'url(./images/blue_blob.png), url(./images/yellow_blob.png)',
+      },
+
+      backgroundPosition: {
+        'position-blobs': '-50px bottom, right top',
+      },
+
+      backgroundSize: {
+        'blobs-size-small': '200px 145px, 200px 145px',
+        'blobs-size-large': '300px 235px, 300px 235px',
       },
     },
   },
@@ -39,6 +49,10 @@ export default {
     plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({}),
         addComponents({
+          '.background-blobs': {
+            '@apply bg-blobs bg-position-blobs xxs:bg-blobs-size-small md:bg-blobs-size-large bg-no-repeat': {},
+          },
+
           '.h1': {
             '@apply text-blue-900 font-karla text-2xl md:text-3xl font-bold leading-none': {},
           },
