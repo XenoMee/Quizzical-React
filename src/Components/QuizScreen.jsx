@@ -12,14 +12,16 @@ const QuizScreen = ({ quizData }) => {
   });
 
   return (
-    <div className='grid gap-10 p-8'>
-      <ul className='grid gap-2'>
-        {quizData.results.map((result, index) => (
-          <QuizQuestion key={index} id={index} question={result.question} answers={options} />
-        ))}
-      </ul>
+    <div className='p-8'>
+      <form action='' className='grid gap-10'>
+        <ul className='grid gap-2'>
+          {quizData.results.map((result, index) => (
+            <QuizQuestion key={index} id={index} question={result.question} answers={options} />
+          ))}
+        </ul>
 
-      <button className='button justify-self-center'>Check Answers</button>
+        <button className='button justify-self-center'>Check Answers</button>
+      </form>
     </div>
   );
 };
