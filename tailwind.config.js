@@ -62,7 +62,12 @@ export default {
           },
 
           '.button': {
-            '@apply bg-blue-600 text-white-50 py-4 px-16 rounded-xl': {},
+            '@apply bg-blue-600 text-white-50 py-4 px-14 rounded-xl cursor-pointer': {},
+          },
+
+          '.label-button': {
+            '@apply bg-white-50 text-blue-900 font-medium py-2 px-6 border border-blue-600 rounded-xl cursor-pointer text-nowrap has-[input[type="radio"]:checked]:bg-blue-50 has-[input[type="radio"]:checked]:border-blue-50':
+              {},
           },
         }),
         addUtilities({});
