@@ -54,11 +54,11 @@ export default {
           },
 
           '.h1': {
-            '@apply text-blue-900 font-karla text-3xl md:text-5xl font-bold leading-none': {},
+            '@apply text-blue-900 font-karla text-3xl sm:text-5xl font-bold leading-none': {},
           },
 
           '.h2': {
-            '@apply text-blue-900 font-karla text-lg md:text-xl font-bold leading-none': {},
+            '@apply text-blue-900 font-karla text-lg sm:text-xl font-bold leading-none': {},
           },
 
           '.button': {
