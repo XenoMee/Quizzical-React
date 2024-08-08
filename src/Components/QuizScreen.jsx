@@ -12,7 +12,7 @@ const QuizScreen = ({ quizData }) => {
   });
 
   return (
-    <div className='p-8'>
+    <div className='grid gap-10 p-8'>
       <ul className='grid gap-2'>
         {quizData.results.map((result, index) => (
           <QuizQuestion key={index} id={index} question={result.question} answers={options} />
