@@ -62,7 +62,8 @@ export default {
           },
 
           '.button': {
-            '@apply bg-blue-600 text-white-50 py-4 px-14 rounded-xl cursor-pointer': {},
+            '@apply bg-blue-600 text-white-50 py-4 px-14 rounded-xl cursor-pointer hover:bg-blue-900 transition delay-100 ease-in':
+              {},
           },
 
           '.label-button': {
