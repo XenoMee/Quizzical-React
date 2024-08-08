@@ -1,4 +1,5 @@
 import React from 'react';
+import { decode } from 'html-entities';
 
 const QuizQuestion = ({ question }) => (
   <li className='pb-2 border-b-[1px] border-blue-25'>
