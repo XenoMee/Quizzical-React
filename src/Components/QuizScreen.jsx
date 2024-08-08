@@ -18,6 +18,8 @@ const QuizScreen = ({ quizData }) => {
           <QuizQuestion key={index} id={index} question={result.question} answers={options} />
         ))}
       </ul>
+
+      <button className='button justify-self-center'>Check Answers</button>
     </div>
   );
 };
