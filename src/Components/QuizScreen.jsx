@@ -1,21 +1,17 @@
 import React from 'react';
+import { decode } from 'html-entities';
 
-const QuizScreen = () => {
+const QuizScreen = ({ quizData }) => {
   return (
-    <div>
-      <ul>
-        <li>
-          <h2>How would you say goodbye in Spanish?</h2>
-        </li>
-        <li>
-          <h2>What is the hottest planet in our Solar System?</h2>
-        </li>
-        <li>
-          <h2>In which country was the Caesar salad invented?</h2>
-        </li>
-        <li>
-          <h2>How many hearts does an octopus have?</h2>
-        </li>
+    <div className='px-8'>
+      <ul className='grid gap-2'>
+        {quizData.results.map((result) => {
+          return (
+            <li className='pb-2 border-b-[1px] border-blue-25'>
+              <h2 className='h2'>{decode(result.question)}</h2>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
