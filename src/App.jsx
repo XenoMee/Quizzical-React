@@ -10,17 +10,21 @@ const App = () => {
   const [quizData, setQuizData] = useState('');
 
   useEffect(() => {
-    fetchData(11, decode, insertRandomly, setQuizData);
+    fetchData(9, decode, insertRandomly, setQuizData);
   }, []);
 
   const toggleQuiz = () => {
-    setQuizActive((prevQuiz) => !prevQuiz);
+    setQuizActive(true);
   };
 
   return (
     <>
       <main className='min-h-svh background-blobs grid place-content-center'>
-        {quizActive ? <QuizScreen quizData={quizData} /> : <StartScreen activateQuiz={toggleQuiz} />}
+        {quizActive ? (
+          <QuizScreen quizData={quizData} setData={setQuizData} />
+        ) : (
+          <StartScreen activateQuiz={toggleQuiz} />
+        )}
       </main>
     </>
   );
