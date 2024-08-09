@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { decode } from 'html-entities';
 import insertRandomly from '../Utilities/insertRandomItem';
 import QuizQuestion from './QuizQuestion';
+import fetchData from '../Utilities/data';
 
 const QuizScreen = ({ quizData, setData }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -40,14 +41,26 @@ const QuizScreen = ({ quizData, setData }) => {
 
   return (
     <div className='p-8'>
-      <form action='' className='grid gap-10'>
+      <form onSubmit={answersChecked ? restartGame : handleSubmit} className='grid gap-10'>
         <ul className='grid gap-2'>
           {quizData.map((item, index) => (
-            <QuizQuestion key={index} id={index} question={item.question} answers={item.answers} />
+            <QuizQuestion
+              key={index}
+              id={index}
+              question={item.question}
+              answers={item.answers}
+              setAnswers={setSelectedAnswers}
+              answerStatus={answersStatus[index]}
+              selectedAnswer={selectedAnswers[index]}
+              answersChecked={answersChecked}
+            />
           ))}
         </ul>
 
-        <button className='button justify-self-center'>Check Answers</button>
+        <div className='grid gap-4 justify-self-center'>
+          {answersChecked && <p className='font-bold'>{`You scored ${score}/${quizData.length} correct answers`}</p>}
+          <button className='button'>{answersChecked ? 'Play Again' : 'Check Answers'}</button>
+        </div>
       </form>
     </div>
   );
