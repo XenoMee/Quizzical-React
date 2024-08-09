@@ -28,7 +28,10 @@ export default {
       screens: {
         xxs: '320px',
         xs: '375px',
-        sm: '650px',
+        ss: '550px',
+        sm: '785px',
+        md: '1060px',
+        lg: '1200px',
         wide: '1440px',
       },
 
@@ -50,16 +53,20 @@ export default {
     plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({}),
         addComponents({
+          '.container': {
+            '@apply max-w-[70rem] mx-auto py-6 px-5 sm:p-10 lg:max-w-[85rem] wide:max-w-[95rem]': {},
+          },
+
           '.background-blobs': {
             '@apply bg-blobs bg-position-blobs xxs:bg-blobs-size-small md:bg-blobs-size-large bg-no-repeat': {},
           },
 
           '.h1': {
-            '@apply text-blue-900 font-karla text-3xl sm:text-5xl font-bold leading-none': {},
+            '@apply text-blue-900 font-karla text-3xl sm:text-5xl wide:text-7xl font-bold leading-none': {},
           },
 
           '.h2': {
-            '@apply text-blue-900 font-karla text-lg sm:text-xl font-bold leading-none': {},
+            '@apply text-blue-900 font-karla text-lg sm:text-xl wide:text-2xl font-bold leading-tight': {},
           },
 
           '.button': {

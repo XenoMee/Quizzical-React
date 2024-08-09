@@ -40,7 +40,7 @@ const QuizScreen = ({ quizData, setData }) => {
   };
 
   return (
-    <div className='p-8'>
+    <div className='container'>
       <form onSubmit={answersChecked ? restartGame : handleSubmit} className='grid gap-10'>
         <ul className='grid gap-2'>
           {quizData.map((item, index) => (

@@ -21,6 +21,6 @@
 
 @layer base {
     body {
-        @apply bg-white-50 font-inter xxs:text-base sm:text-lg text-blue-900 font-normal
+        @apply bg-white-50 font-inter xxs:text-base ss:text-lg wide:text-xl text-blue-900 font-normal
     }
 }
