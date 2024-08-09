@@ -13,9 +13,9 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
 
   const getLabelClass = (answer) => {
     if (answerStatus === 'correct' && answer === selectedAnswer) {
-      return 'bg-correct';
+      return 'correct';
     } else if (answerStatus === 'wrong' && answer === selectedAnswer) {
-      return 'bg-wrong';
+      return 'wrong';
     } else {
       return '';
     }
@@ -31,8 +31,8 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
               <label
                 key={index}
                 role='button'
-                className={`label-button ${
-                  answersChecked && getLabelClass(answer)
+                className={`label-button ${answersChecked && `bg-${getLabelClass(answer)}`} ${
+                  answersChecked && `border-${getLabelClass(answer)}`
                 } hover:bg-blue-600 hover:text-white-50 transition delay-100 ease-in-out`}
               >
                 <input
