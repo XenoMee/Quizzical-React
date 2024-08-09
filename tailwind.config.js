@@ -67,7 +67,7 @@ export default {
           },
 
           '.label-button': {
-            '@apply bg-white-50 text-blue-900 font-medium py-2 px-6 border border-blue-600 rounded-xl cursor-pointer text-nowrap has-[input[type="radio"]:checked]:bg-blue-50 has-[input[type="radio"]:checked]:border-blue-50 has-[input[type="radio"]:checked]:hover:bg-blue-900':
+            '@apply bg-white-50 text-blue-900 font-medium py-2 px-6 border border-blue-600 rounded-xl cursor-pointer text-nowrap has-[input[type="radio"]:checked]:bg-blue-50 has-[input[type="radio"]:checked]:border-blue-50 has-[input[type="radio"]:checked]:hover:bg-blue-900 hover:bg-blue-600 hover:text-white-50 transition delay-100 ease-in-out':
               {},
           },
         }),

@@ -27,7 +27,9 @@ const QuizScreen = ({ quizData, setData }) => {
     setAnswersChecked((prevAnswersChecked) => !prevAnswersChecked);
   };
 
-  const restartGame = () => {
+  const restartGame = (e) => {
+    e.preventDefault();
+
     setSelectedAnswers({});
     setAnswersChecked(false);
     setScore(0);

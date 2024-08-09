@@ -31,9 +31,11 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
               <label
                 key={index}
                 role='button'
-                className={`label-button ${answersChecked && `bg-${getLabelClass(answer)}`} ${
-                  answersChecked && `border-${getLabelClass(answer)}`
-                } hover:bg-blue-600 hover:text-white-50 transition delay-100 ease-in-out`}
+                className={`label-button ${
+                  answersChecked &&
+                  getLabelClass(answer) &&
+                  `border-${getLabelClass(answer)} bg-${getLabelClass(answer)}`
+                }`}
               >
                 <input
                   type='radio'
