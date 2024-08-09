@@ -9,8 +9,15 @@ const App = () => {
   const [quizActive, setQuizActive] = useState(false);
   const [quizData, setQuizData] = useState('');
 
+  async function fetchCategoryList() {
+    const res = await fetch('https://opentdb.com/api_category.php');
+    const data = await res.json();
+    return data.trivia_categories;
+  }
+
   useEffect(() => {
-    fetchData(9, decode, insertRandomly, setQuizData);
+    const randomCategory = Math.floor(Math.random() * (fetchCategoryList().length + 1));
+    fetchData(randomCategory, decode, insertRandomly, setQuizData);
   }, []);
 
   const toggleQuiz = () => {
