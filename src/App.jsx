@@ -10,14 +10,26 @@ const App = () => {
   const [quizData, setQuizData] = useState('');
 
   async function fetchCategoryList() {
-    const res = await fetch('https://opentdb.com/api_category.php');
-    const data = await res.json();
-    return data.trivia_categories;
+    try {
+      const res = await fetch('https://opentdb.com/api_category.php');
+      const data = await res.json();
+      return data.trivia_categories;
+    } catch (err) {
+      console.error('Fetching category list failed', err);
+      return [];
+    }
   }
 
   useEffect(() => {
-    const randomCategory = Math.floor(Math.random() * (fetchCategoryList().length + 1));
-    fetchData(randomCategory, decode, insertRandomly, setQuizData);
+    async function getRandomCategory() {
+      const categories = await fetchCategoryList();
+      if (categories.length > 0) {
+        const randomCategory = Math.floor(Math.random() * categories.length);
+        fetchData(categories[randomCategory].id, decode, insertRandomly, setQuizData);
+      }
+    }
+
+    getRandomCategory();
   }, []);
 
   const toggleQuiz = () => {
