@@ -32,7 +32,7 @@ export default {
       },
 
       backgroundImage: {
-        blobs: 'url(./images/blue_blob.png), url(./images/yellow_blob.png)',
+        blobs: 'url(/images/blue_blob.png), url(/images/yellow_blob.png)',
       },
 
       backgroundPosition: {
