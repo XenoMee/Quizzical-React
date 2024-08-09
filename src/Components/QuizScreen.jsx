@@ -1,4 +1,6 @@
 import { React, useState } from 'react';
+import { decode } from 'html-entities';
+import insertRandomly from '../Utilities/insertRandomItem';
 import QuizQuestion from './QuizQuestion';
 import fetchData from '../Utilities/data';
 
