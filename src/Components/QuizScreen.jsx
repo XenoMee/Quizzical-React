@@ -49,6 +49,7 @@ const QuizScreen = ({ quizData, setData }) => {
               id={index}
               question={item.question}
               answers={item.answers}
+              correctAnswer={item.correct_answer}
               setAnswers={setSelectedAnswers}
               answerStatus={answersStatus[index]}
               selectedAnswer={selectedAnswers[index]}

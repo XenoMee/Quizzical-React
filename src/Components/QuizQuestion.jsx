@@ -1,6 +1,15 @@
 import React from 'react';
 
-const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answersChecked, selectedAnswer }) => {
+const QuizQuestion = ({
+  id,
+  question,
+  answers,
+  correctAnswer,
+  setAnswers,
+  answerStatus,
+  answersChecked,
+  selectedAnswer,
+}) => {
   const handleChange = (e) => {
     const { value } = e.target;
     setAnswers((prevAnswers) => {
@@ -16,6 +25,8 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
       return 'bg-correct border-correct';
     } else if (answerStatus === 'wrong' && answer === selectedAnswer) {
       return 'bg-wrong border-wrong';
+    } else if (answer === correctAnswer) {
+      return 'bg-correct border-correct';
     } else {
       return '';
     }
