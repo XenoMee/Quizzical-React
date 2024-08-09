@@ -46,7 +46,7 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
                   disabled={answersChecked}
                   checked={answersChecked ? false : selectedAnswer === answer}
                 />
-                <span>{answer}</span>
+                <span className='text-balance'>{answer}</span>
               </label>
             );
           })}
