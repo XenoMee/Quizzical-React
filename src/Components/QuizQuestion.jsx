@@ -11,8 +11,6 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
     });
   };
 
-  console.log({ answerStatus, selectedAnswer });
-
   const getLabelClass = (answer) => {
     if (answerStatus === 'correct' && answer === selectedAnswer) {
       return 'bg-correct';
