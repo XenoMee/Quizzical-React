@@ -36,7 +36,7 @@ const QuizQuestion = ({
     <li className='pb-4 pt-2 border-b-[1px] border-blue-25'>
       <fieldset>
         <legend className='h2 mb-4'> {question}</legend>
-        <div className='flex text-center xxs:flex-col xxs:gap-4 sm:flex-row sm:justify-between sm:items-center'>
+        <div className='flex text-center xxs:flex-col xxs:gap-4 sm:flex-row sm:flex-wrap  sm:items-center'>
           {answers.map((answer, index) => {
             return (
               <label
