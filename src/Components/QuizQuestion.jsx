@@ -13,9 +13,9 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
 
   const getLabelClass = (answer) => {
     if (answerStatus === 'correct' && answer === selectedAnswer) {
-      return 'correct';
+      return 'bg-correct border-correct';
     } else if (answerStatus === 'wrong' && answer === selectedAnswer) {
-      return 'wrong';
+      return 'bg-wrong border-wrong';
     } else {
       return '';
     }
@@ -31,11 +31,7 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
               <label
                 key={index}
                 role='button'
-                className={`label-button ${
-                  answersChecked &&
-                  getLabelClass(answer) &&
-                  `border-${getLabelClass(answer)} bg-${getLabelClass(answer)}`
-                }`}
+                className={`label-button ${answersChecked && getLabelClass(answer) ? `${getLabelClass(answer)}` : ''}`}
               >
                 <input
                   type='radio'
@@ -46,7 +42,7 @@ const QuizQuestion = ({ id, question, answers, setAnswers, answerStatus, answers
                   disabled={answersChecked}
                   checked={answersChecked ? false : selectedAnswer === answer}
                 />
-                <span className='text-balance'>{answer}</span>
+                <span>{answer}</span>
               </label>
             );
           })}
