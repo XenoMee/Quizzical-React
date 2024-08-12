@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 const QuizQuestion = ({
@@ -21,15 +22,11 @@ const QuizQuestion = ({
   };
 
   const getLabelClass = (answer) => {
-    if (answerStatus === 'correct' && answer === selectedAnswer) {
-      return 'bg-correct border-correct';
-    } else if (answerStatus === 'wrong' && answer === selectedAnswer) {
-      return 'bg-wrong border-wrong';
-    } else if (answer === correctAnswer) {
-      return 'bg-correct border-correct';
-    } else {
-      return '';
-    }
+    return classNames({
+      'bg-correct border-correct':
+        (answerStatus === 'correct' && answer === selectedAnswer) || answer === correctAnswer,
+      'bg-wrong border-wrong': answerStatus === 'wrong' && answer === selectedAnswer,
+    });
   };
 
   return (
@@ -39,11 +36,7 @@ const QuizQuestion = ({
         <div className='flex text-center xxs:flex-col xxs:gap-4 ss:flex-row ss:flex-wrap ss:items-center'>
           {answers.map((answer, index) => {
             return (
-              <label
-                key={index}
-                role='button'
-                className={`label-button ${answersChecked && getLabelClass(answer) ? `${getLabelClass(answer)}` : ''}`}
-              >
+              <label key={index} role='button' className={`label-button ${answersChecked && getLabelClass(answer)}`}>
                 <input
                   type='radio'
                   name={`question${id}`}
