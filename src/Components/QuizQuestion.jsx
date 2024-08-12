@@ -21,7 +21,7 @@ const QuizQuestion = ({
     });
   };
 
-  const getLabelClass = (answer) => {
+  const getClassStatus = (answer) => {
     return classNames({
       'bg-correct border-correct':
         (answerStatus === 'correct' && answer === selectedAnswer) || answer === correctAnswer,
@@ -36,7 +36,7 @@ const QuizQuestion = ({
         <div className='flex text-center xxs:flex-col xxs:gap-4 ss:flex-row ss:flex-wrap ss:items-center'>
           {answers.map((answer, index) => {
             return (
-              <label key={index} role='button' className={`label-button ${answersChecked && getLabelClass(answer)}`}>
+              <label key={index} role='button' className={`label-button ${answersChecked && getClassStatus(answer)}`}>
                 <input
                   type='radio'
                   name={`question${id}`}
