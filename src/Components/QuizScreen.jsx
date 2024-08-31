@@ -11,8 +11,6 @@ const QuizScreen = () => {
   const { category, getRandomCategory } = useCategory();
   const { quizData } = useData(category);
 
-  console.log(quizData);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const statuses = {};
