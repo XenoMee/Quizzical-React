@@ -4,10 +4,7 @@ import QuizScreen from './Components/QuizScreen';
 
 const App = () => {
   const [quizActive, setQuizActive] = useState(false);
-
-  const toggleQuiz = () => {
-    setQuizActive(true);
-  };
+  const toggleQuiz = () => setQuizActive(true);
 
   return (
     <>
