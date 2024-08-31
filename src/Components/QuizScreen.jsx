@@ -1,14 +1,17 @@
-import { React, useState } from 'react';
-import { decode } from 'html-entities';
-import insertRandomly from '../Utilities/insertRandomItem';
+import { useState } from 'react';
+import useData from '../Hooks/useData';
+import useCategory from '../Hooks/useCategory';
 import QuizQuestion from './QuizQuestion';
-import fetchData from '../Utilities/data';
 
-const QuizScreen = ({ quizData, setData }) => {
+const QuizScreen = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [answersStatus, setAnswersStatus] = useState({});
   const [answersChecked, setAnswersChecked] = useState(false);
   const [score, setScore] = useState(0);
+  const { category, getRandomCategory } = useCategory();
+  const { quizData } = useData(category);
+
+  console.log(quizData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,9 +39,10 @@ const QuizScreen = ({ quizData, setData }) => {
     setAnswersChecked(false);
     setScore(0);
     setAnswersStatus({});
-    fetchData(9, decode, insertRandomly, setData);
+    getRandomCategory();
   };
 
+  if (quizData.length === 0) return <div>Loading questions...</div>;
   return (
     <div className='container'>
       <form onSubmit={answersChecked ? restartGame : handleSubmit} className='grid gap-10'>
