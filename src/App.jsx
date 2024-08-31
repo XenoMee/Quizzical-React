@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import StartScreen from './Components/StartScreen';
 import QuizScreen from './Components/QuizScreen';
+import LoadingData from './Components/LoadingData';
 
 const App = () => {
   const [quizActive, setQuizActive] = useState(false);
@@ -9,7 +10,13 @@ const App = () => {
   return (
     <>
       <main className='min-h-svh background-blobs grid place-content-center'>
-        {quizActive ? <QuizScreen /> : <StartScreen activateQuiz={toggleQuiz} />}
+        {quizActive ? (
+          <Suspense fallback={<LoadingData />}>
+            <QuizScreen />
+          </Suspense>
+        ) : (
+          <StartScreen activateQuiz={toggleQuiz} />
+        )}
       </main>
     </>
   );
